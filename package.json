@@ -1,0 +1,30 @@
+{
+  "name": "ts-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "tsc",
+    "start": "node -r dotenv/config dist",
+    "dev": "nodemon",
+    "ts:node": "ts-node src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.3",
+    "helmet": "^4.6.0",
+    "mongoose": "^6.0.5"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/express-handlebars": "^5.3.1",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.12",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
+  }
+}
