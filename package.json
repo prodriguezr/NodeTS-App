@@ -7,7 +7,7 @@
     "clean": "rm -rf ./dist",
     "build": "tsc",
     "start": "node -r dotenv/config dist",
-    "dev": "nodemon",
+    "dev": "clear && nodemon",
     "ts:node": "ts-node src/index.ts"
   },
   "keywords": [],

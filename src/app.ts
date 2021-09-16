@@ -2,7 +2,9 @@ import express, { Application } from 'express';
 import exphbs from 'express-handlebars';
 import path from 'path';
 
-export default class App {
+import { homeRoute, booksRoute } from './routes';
+
+class App {
     private app:Application;
 
     constructor() {
@@ -13,8 +15,6 @@ export default class App {
         this.middlewares();
 
         this.routes();
-
-        this.listen();
     }
 
     private settings() {
@@ -25,7 +25,8 @@ export default class App {
             extname: '.hbs',
             layoutsDir: path.join(this.app.get('views'), 'layouts'),
             partialsDir: path.join(this.app.get('views'), 'partials'),
-            helpers: require('./libs/helpers')
+            helpers: require('./libs/helpers'),
+            defaultLayout: 'main'
         }));
 
         this.app.set('view engine', '.hbs');
@@ -38,11 +39,16 @@ export default class App {
     }
 
     private routes() {
+        this.app.use('/', homeRoute);
+        this.app.use('/books', booksRoute);
     }
 
-    private listen() {
+    public listen() {
         this.app.listen(this.app.get('port'), () => {
             console.log(`Server listening on port ${this.app.get('port')}`);
         });
     }
 }
+
+const app = new App();
+export default app;

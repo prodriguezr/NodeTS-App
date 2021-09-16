@@ -1,3 +1,3 @@
-import App from "./app";
+import app from "./app";
 
-new App();
+app.listen();
